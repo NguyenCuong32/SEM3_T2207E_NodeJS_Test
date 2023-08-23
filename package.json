@@ -1,0 +1,33 @@
+{
+  "name": "backend0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sever.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/sever.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NguyenCuong32/SEM3_T2207E_NodeJS_Test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NguyenCuong32/SEM3_T2207E_NodeJS_Test/issues"
+  },
+  "homepage": "https://github.com/NguyenCuong32/SEM3_T2207E_NodeJS_Test#readme",
+  "dependencies": {
+    "body-parser": "1.20.2",
+    "cors": "2.8.5",
+    "dotenv": "16.0.3",
+    "ejs": "3.1.8",
+    "express": "4.18.2",
+    "mongoose": "7.4.4",
+    "morgan": "1.10.0",
+    "mysql2": "2.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.20"
+  }
+}
