@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content=
+		"width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+	<link rel="stylesheet" href=
+    "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity=
+    "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous" />
+			<style>
+				td {
+					border: 1px solid black;
+					text-align: center;
+					padding: 5px 0;
+				}
+				th {
+					border: 1px solid black;
+					text-align: center;
+				}
+
+				
+			</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<h1 class="col-12 text-center">
+				Product form
+			</h1>
+			<form id="userForm" class="col-12">
+                <div class="form-floating mb-3">
+					<label for="productCode">Product Code</label>
+					<input type="text" class="form-control" name="productCode" id="productCode"  placeholder="Product Code" required>
+				</div>
+				<div class="form-floating mb-3">
+					<label for="productName">Product Name</label>
+					<input type="text" class="form-control" name="productName" id="productName"  placeholder="Product Name" required>
+				</div>
+				<div class="form-floating mb-3">
+					<label for="productData">Product Data</label>
+					<input type="date" class="form-control" name="productData" id="productData"  placeholder="Product Data" required>
+				</div>
+				<div class="form-floating mb-3">
+					<label for="productOriginPrice">Product Origin Price</label>
+					<input type="number" class="form-control" name="productOriginPrice" id="productOriginPrice"  placeholder="Product Origin Price" required>
+				</div>
+                <div class="form-floating mb-3">
+					<label for="quantity">Quantity</label>
+					<input type="number" class="form-control" name="quantity" id="quantity"  placeholder="Quantity" required>
+				</div>
+                <div class="form-floating mb-3">
+					<label for="productStoreCode">Product Store Code</label>
+					<input type="text" class="form-control" name="productStoreCode" id="productStoreCode"  placeholder="Product Store Code" required>
+				</div>
+				<button type="submit" id="submit" class="btn btn-primary">Add Product</button>
+			</form>
+			<h1 class="col-12 text-center">Products List</h1>
+			<table class="col-12">
+				<thead>
+					<tr class="text-center">
+					  <th>Product Code</th>
+					  <th>Product Name</th>
+					  <th>Product Data</th>
+                      <th>Product Origin Price</th>
+                      <th>Quantity</th>
+                      <th>Product Store Code</th>
+					  <th>Actions</th>
+					</tr>
+				  </thead>
+				  <tbody id="userTableBody">
+					<!-- User data will be inserted here dynamically -->
+				  </tbody>
+			</table>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity=
+		"sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+		crossorigin="anonymous">
+	</script>
+	<script src="js/script.js"></script>
+</body>
+
+</html>
