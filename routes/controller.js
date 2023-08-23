@@ -63,3 +63,5 @@ router.get('/detail/:productcode', (req, res) => {
     })
     
 });
+
+module.exports = router;
