@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Home page</title>
+        <link rel='stylesheet' href='/dist/css/bootstrap.min.css'>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <a href="/">
+                <h3>Home page</h3>
+            </a>
+            <h2>UPDATE User</h2>
+            <form action="/<%= productcolls._id %>" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="hidden" name='_id' value="<%= productcolls._id %>" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Product Code</label>
+                    <input class="form-control" type="text" name='ProductCode' value="<%= productcolls.ProductCode %>" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Product Name</label>
+                    <input class="form-control" type="text" name='ProductName' value="<%= productcolls.ProductName %>" disabled>
+                </div> 
+                <div class="form-group">
+                    <label>Product Origin Price</label>
+                    <input class="form-control" type="text" name='ProductOriginPrice' value="<%= productcolls.ProductOriginPrice %>" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input  class="form-control" type="text" name='Quantity' value="<%= productcolls.Quantity %>" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Product Store Code</label>
+                    <input  class="form-control" type="text" name='ProductStoreCode' value="<%= productcolls.ProductStoreCode %>" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Product Data</label>
+                    <input class="form-control" type="text"  value="<%= productcolls.ProductData %>" disabled>
+                </div>
+ 
+                <input id="update-btn" class="btn btn-secondary" type="button" value="DELETE"
+                    onclick="handleDeleteUser('<%= productcolls._id %>')">
+            </form>
+        </div>
+        <script>
+            function handleDeleteUser(value) {
+                $.ajax({
+                    url: '/' + value,
+                    type: 'DELETE',
+                    success: function (result) {
+                        $(location).attr('href', '/');
+                    }
+                })
+            }
+        </script>
+    </body>
+</html>

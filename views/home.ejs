@@ -23,7 +23,7 @@
                     </tr>
                 </thead>
                 <% for(var i=0; i < productcolls.length; i++) { %>
-                <tr ondblclick="handleUpdateUser('<%= usersps[i]._id %>')">
+                <tr ondblclick="handleUpdateUser('<%= productcolls[i]._id %>')">
                      <td><%= productcolls[i].ProductCode %></td> 
                     <td><%= productcolls[i].ProductName %></td>
                     <td><%= productcolls[i].ProductOriginPrice %></td>
@@ -61,7 +61,7 @@
 
 
         <div class="container">
-            <h2>ADD User </h2>
+            <h2>ADD Product </h2>
             <form action="/"  method="POST">
                 <div class="form-group">
                     <label>Product Code</label>
