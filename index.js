@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 const fs = require("fs");
 var dotenv = require("dotenv");
 const ejs = require('ejs');
-const path = require('path')
+const path = require('path');
 
 dotenv.config({ path: "./config/config.env" });
 
