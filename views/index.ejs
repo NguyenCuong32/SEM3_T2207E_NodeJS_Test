@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="container mt-3">
+  <table class="table">
+    <a href="/add" class="btn btn-success mt-3">Add</a>
+    <thead>
+      <tr class="">
+        <th>ProductCode</th>
+        <th>ProductName</th>
+        <th>ProductData</th>
+        <th>ProductOriginPrice</th>
+        <th>Quantity</th>
+        <th>ProductStoreCode</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% newProduct.forEach(element => { %>
+      <tr class="text-center">
+        <td><%= element._id.toString().slice(-4) %></td>
+        <td><%= element.ProductName %></td>
+        <td><%= element.ProductData %></td>
+        <td><%= element.ProductOriginPrice %></td>
+        <td><%= element.Quantity %></td>
+        <td><%= element.ProductStoreCode %></td>
+        <td>
+          <a href="/delete/<%= element._id %>" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    <% }) %>
+    </tbody>
+  </table>
+</div>
+<body>
+</html>
