@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quản lý sản phẩm</title>
+    
+  </head>
+  <body>
+    <h1>Danh sách sản phẩm</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Mã sản phẩm</th>
+          <th>Tên sản phẩm</th>
+          <th>Ngày sản xuất</th>
+          <th>Xuất xứ</th>
+          <th>Giá</th>
+          <th>Số lượng</th>
+          <th>Mã cửa hàng</th>
+          <th>Thao tác</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% products.forEach(function(product) { %>
+          <tr>
+            <td><%= product.productCode %></td>
+            <td><%= product.productName %></td>
+            <td><%= product.productDate %></td>
+            <td><%= product.productOrigin %></td>
+            <td><%= product.productPrice %></td>
+            <td><%= product.productQuantity %></td>
+            <td><%= product.productStoreCode %></td>
+            <td>
+              <form method="POST" action="/products/<%= product._id %>?_method=DELETE">
+                <button type="submit">Xóa</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <h2>Thêm sản phẩm mới</h2>
+    <form method="POST" action="/products">
+      
+      <button type="submit">Thêm</button>
+    </form>
+  </body>
+</html>
