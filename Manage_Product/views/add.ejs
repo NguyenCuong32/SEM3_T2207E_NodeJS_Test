@@ -1,0 +1,43 @@
+<!-- add.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Product</title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Add Product</h2>
+    <form action="/add" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="productCode">ProductCode</label>
+        <input class="form-control" type="text" name="productCode" required>
+      </div>
+      <div class="form-group">
+        <label for="productName">ProductName</label>
+        <input class="form-control" type="text" name="productName" required>
+      </div><div class="form-group">
+        <label for="productData">ProductData</label>
+        <input class="form-control" type="text" name="productData" required>
+      </div>
+      <div class="form-group">
+        <label for="productOriginPrice">ProductOriginPrice</label>
+        <input class="form-control" type="number" name="productOriginPrice" required>
+      </div>
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input class="form-control" type="number" name="quantity" required>
+      </div>
+      <div class="form-group">
+        <label for="productStoreCode">ProductStoreCode</label>
+        <input class="form-control" type="text" name="productStoreCode" required>
+      </div>
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input class="form-control" type="file" name="image" accept="image/*" required>
+      </div>
+      <button class="btn btn-primary" type="submit">Add Product</button>
+    </form>
+  </div>
+</body>
+</html>
