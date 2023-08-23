@@ -1,0 +1,24 @@
+body {
+	/* background-image: linear-gradient(120deg,#9de7fa 0%,#74cbb9 100%); */
+	/* color: white; */
+	font-family: "Poppins", sans-serif;
+	min-height: 100vh;
+	background-image: url("./asset/img/summer1.jpg");
+	background-repeat: no-repeat;
+  	background-size: cover;
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: #442fa4;
+	border-color: #5614dc;
+}
+.containerFormSubmittedMessage {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+	border: 3px solid whitesmoke;
+}

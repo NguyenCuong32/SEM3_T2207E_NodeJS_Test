@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product List</title>
+</head>
+<body style="background-image: url(./asset/img/summer1.jpg); background-repeat: no-repeat; background-size: cover;">
+    <h1>Product List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>----- ProductName</th>
+                <th>----- ProductData</th>
+                <th>----- Product Original Price</th>
+                <th>----- Product Quantity</th>
+                <th>----- Product Code</th>
+                <th>----- Product Store Code</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% Product.forEach(function(u) { %>
+                <tr>
+                    <td>----- <%= u.ProductName %></td>
+                    <td>----- <%= u.ProductData %></td>
+                    <td>----- <%= u.POP %></td>
+                    <td>----- <%= u.PQ %></td>
+                    <td>----- <%= u.PC %></td>
+                    <td>----- <%= u.PSC %></td>
+                    <td>
+                        <form id="deleteForm_<%= u._id %>" action="/deleteProduct/<%= u._id %>" method="POST">
+                            <button type="button" onclick="confirmDelete('<%= u._id %>')">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <script>
+        function confirmDelete(ProductId) {
+            const confirmation = confirm('Delete this Product?');
+        
+            if (confirmation) {
+                const form = document.getElementById(`deleteForm_${ProductId}`);
+                form.submit();
+            }
+        }
+        </script>
+</body>
+</html>
