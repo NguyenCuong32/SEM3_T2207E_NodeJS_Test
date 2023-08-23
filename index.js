@@ -76,9 +76,9 @@ app.post('/add-product', async (req, res) => {
   }
 });
 
-app.delete('/remove-product/:id', async (req, res) => {
-    const productCode = req.params.id;
-  
+app.delete('/remove-product/:productCode', async (req, res) => {
+    const productCode = req.params.productCode;
+    console.log(productCode);
     try {
       await Product.findByIdAndRemove(productCode);
       res.json({ message: 'Product removed successfully' });
