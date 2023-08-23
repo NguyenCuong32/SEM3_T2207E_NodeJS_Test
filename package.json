@@ -1,0 +1,18 @@
+{
+  "name": "sem3_t2207e_nodejs",
+  "version": "1.0.0",
+  "description": "SEM 3 T2207E Node JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "q5nguyenn",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.4.3",
+    "nodemon": "^3.0.1"
+  }
+}
