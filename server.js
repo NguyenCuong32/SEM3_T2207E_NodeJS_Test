@@ -61,6 +61,7 @@ app.get("/products",(req,res)=>{
         console.log("Error fetching products", err);
         res.status(500).json({error: "Error get products"});
     });
+    res.render('products', products);
 });
 
 
@@ -79,6 +80,7 @@ app.delete('/deleteProduct/:productCode',(req,res) =>{
         res.status(500).json({message: 'Unable to delete product'});
     });
 });
+
 
 // Handle route to render index.ejs
 app.get('/', (req, res) => {
