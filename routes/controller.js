@@ -66,7 +66,7 @@ router.get('/detail/:productcode', (req, res) => {
 });
 
 router.get('/detail/:productcode', (req, res) => {
-    Product.find( {ProductCode:req.params.ProductCode}).sort({ProductCode:req.params.1})
+    Product.find( {ProductCode:req.params.ProductCode}).sort({ProductCode:1})
     
         .then((productcolls) => {
             
