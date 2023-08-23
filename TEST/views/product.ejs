@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product</title>
+    <style>
+        form{
+            width: 100%;
+        }
+        input{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product List</h1>
+
+    <h1>Add Product</h1>
+    <form id="addProductForm">
+        <table>
+            <tr>
+                <td><input type="text" name="ProductCode" placeholder="ProductCode"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="ProductName" placeholder="ProductName"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="ProductData" placeholder="ProductData"></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="ProductOriginPrice" placeholder="ProductOriginPrice"></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="Quantity" placeholder="Quantity"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="ProductStoreCode" placeholder="ProductStoreCode"></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Add Product</button></td>
+            </tr>
+        </table>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#addProductForm").submit(function(event) {
+                event.preventDefault();
+
+                var formData = $(this).serialize();
+                alert(formData);
+                $.ajax({
+                    type: "POST",
+                    url: "/product/add",
+                    data: formData,
+                    success: function(response) {
+                        alert("Product added successfully");
+                    },
+                    error: function(error) {
+                        alert("Error adding product");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
