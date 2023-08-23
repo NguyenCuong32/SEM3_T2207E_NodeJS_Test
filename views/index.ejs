@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Product Collection</title>
+    </head>
+    <body>
+        <h1>Add product</h1>
+        <form id="addProduct">
+            <input type="text" name="ProductCode" placeholder="ProductCode">
+            <input type="text" name="ProductName" placeholder="ProductName">
+            <input type="text" name="ProductDate" placeholder="ProductDate">
+            <input type="number" name="ProductOriginPrice" placeholder="ProductOriginPrice">
+            <input type="number" name="Quantity" placeholder="Quantity">
+            <input type="text" name="ProductStoreCode" placeholder="ProductStoreCode">
+            <button type="submit">Add Product</button>
+        </form>
+        
+        <hr />
+
+        <h1>Delete product</h1>
+        <form id="deleteProduct">
+            <input type="text" name="ProductCode" placeholder="ProductCode">
+            <button type="submit">Delete Product</button>
+        </form>
+
+        <hr />
+        <h1>Get all products</h1>
+        <table>
+            
+        </table>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                //addProduct
+                $('#addProduct').submit(function(event){
+                    event.preventDefault();
+                    const formData = $(this).serialize();
+                    $.ajax({
+                        type: 'POST',
+                        url: `/addProduct`,
+                        data: formData,
+                        success: function(response){
+                            alert('Product added successfully');
+                        },
+                        error: function(error){
+                            alert('Product could not be added successfully');
+                        }
+                    })
+                });
+
+                //deleteProduct
+                $('#deleteProduct').click(function(){
+                    const productCode = $(this).find("input[name='ProductCode']").val();
+                    $.ajax({
+                        type: 'Delete',
+                        url: `/deleteProduct/${productCode}`,
+                        success: function(response){
+                            alert("Product deleted successfully");
+                        },
+                        error: function(error){
+                            alert("Error deleting product");
+                        }
+                    })
+                });
+                
+            });
+        </script>
+
+
+
+    </body>
+</html>
