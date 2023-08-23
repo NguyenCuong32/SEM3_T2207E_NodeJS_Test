@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home page</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <header>
+      <!-- place navbar here -->
+    </header>
+    <main>
+      <div class="container-fluid">
+        <div>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>_id</th>
+                <th>ProductCode</th>
+                <th>ProductName</th>
+                <th>ProductData</th>
+                <th>ProductOriginPrice</th>
+                <th>Quantity</th>
+                <th>ProductStoreCode</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% prods.forEach(function(pro) { %>
+              <tr>
+                <td><%= pro._id %></td>
+                <td><%= pro.ProductCode %></td>
+                <td><%= pro.ProductName %></td>
+                <td><%= pro.ProductData %></td>
+                <td><%= pro.ProductOriginPrice %></td>
+                <td><%= pro.Quantity %></td>
+                <td><%= pro.ProductStoreCode %></td>
+                <td>
+                  <button
+                    class="btn btn-danger delete-button"
+                    data-id="<%= pro._id %>"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+        <div class="container">
+          <h2>Add Product</h2>
+          <form id="add-product-form">
+            <div class="mb-3"><input class="form-control"
+              type="text"
+              name="ProductCode"
+              placeholder="ProductCode"
+              required
+            /></div>
+            <div class="mb-3"><input class="form-control"
+              type="text"
+              name="ProductName"
+              placeholder="ProductName"
+              required
+            /></div>
+            <div class="mb-3"><input class="form-control"
+              type="text"
+              name="ProductData"
+              placeholder="ProductData"
+              required
+            /></div>
+            <div class="mb-3"><input class="form-control"
+              type="text"
+              name="ProductOriginPrice"
+              placeholder="ProductOriginPrice"
+              required
+            /></div>
+            <div class="mb-3"><input class="form-control"
+              type="text"
+              name="Quantity"
+              placeholder="Quantity"
+              required
+            /></div>
+            <div class="mb-3"><input class="form-control"
+              type="text"
+              name="ProductStoreCode"
+              placeholder="ProductStoreCode"
+              required
+            /></div>
+            <button class="btn btn-success" type="submit">Add Prod</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        // Delete User
+        $(".delete-button").click(function () {
+          const proId = $(this).data("id");
+          $.ajax({
+            url: "/delete/" + proId,
+            method: "DELETE",
+            success: function () {
+              location.reload();
+            },
+          });
+        });
+
+        // Add User
+        $("#add-product-form").submit(function (event) {
+          event.preventDefault();
+          const formData = $(this).serialize();
+          $.ajax({
+            url: "/post",
+            method: "POST",
+            data: formData,
+            success: function () {
+              location.reload();
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
