@@ -56,6 +56,20 @@ router.delete('/:ProductCode', (req, res) => {
 router.get('/detail/:productcode', (req, res) => {
     Product.find( {ProductCode:req.params.ProductCode})
         .then((productcolls) => {
+            
+        res.render('detail', { productcolls: productcolls});
+    })
+    .catch((err) =>{
+        console.log(err);
+    })
+    
+});
+
+router.get('/detail/:productcode', (req, res) => {
+    Product.find( {ProductCode:req.params.ProductCode}).sort({ProductCode:req.params.1})
+    
+        .then((productcolls) => {
+            
         res.render('detail', { productcolls: productcolls});
     })
     .catch((err) =>{
