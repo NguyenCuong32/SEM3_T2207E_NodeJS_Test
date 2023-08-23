@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.3.1",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.4.3"
+  },
+  "name": "sem3_t2207e_nodejs_test",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NguyenCuong32/SEM3_T2207E_NodeJS_Test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NguyenCuong32/SEM3_T2207E_NodeJS_Test/issues"
+  },
+  "homepage": "https://github.com/NguyenCuong32/SEM3_T2207E_NodeJS_Test#readme"
+}

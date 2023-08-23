@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Home page</title>
+        <link rel='stylesheet' href='/dist/css/bootstrap.min.css'>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h2>User List</h2>
+            
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                         <th>ProductCode</th> 
+                        <th>ProductName</th>
+                        <th>ProductOriginPrice</th>
+                        <th>Quantity</th>
+                        <th>ProductStoreCode</th>
+                        <th>ProductData</th>
+                        <th>info</th>
+                        <th>ID get</th>
+                    </tr>
+                </thead>
+                <% for(var i=0; i < productcolls.length; i++) { %>
+                <tr ondblclick="handleUpdateUser('<%= usersps[i]._id %>')">
+                     <td><%= productcolls[i].userid %></td> 
+                    <td><%= productcolls[i].username %></td>
+                    <td><%= productcolls[i].age %></td>
+                    <td><%= productcolls[i].age %></td>
+                    <td><%= productcolls[i].age %></td>
+                    <td>
+                        <input class="btn btn-primary" type="button" value="Update/info"
+                            onclick="handleUpdateUser('<%= usersps[i]._id %>')">
+                    </td>
+                    <td>
+                        <input id="update-btn" class="btn btn-secondary" type="button" value="DELETE"
+                    onclick="handleDeleteUser('<%= usersps[i]._id %>')">   
+                    </td>
+                </tr>
+                <% } %>
+            </table>
+            <script>
+                function handleUpdateUser(value) {
+                    $(location).attr('href', '/update-user/' + value);
+                }
+                
+                function handleDeleteUser(value) {
+                $.ajax({
+                    url: '/' + value,
+                    type: 'DELETE',
+                    success: function (result) {
+                        $(location).attr('href', '/');
+                    }
+                })
+            }
+
+            </script>
+        </div>
+    </body>
+</html>
