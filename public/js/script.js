@@ -29,14 +29,14 @@ function fetchProducts() {
           row.appendChild(quantity);
 
           const productStoreCode = document.createElement('td');
-          productData.textContent = product.productStoreCode;
+          productStoreCode.textContent = product.productStoreCode;
           row.appendChild(productStoreCode);
   
           const removeButtonCell = document.createElement('td');
           const removeButton = document.createElement('button');
           removeButton.textContent = 'Remove';
           removeButton.classList.add("btn", "btn-danger");
-          removeButton.addEventListener('click', () => removeUser(product.productCode));
+          removeButton.addEventListener('click', () => removeProduct(product.productCode));
           removeButtonCell.appendChild(removeButton);
           row.appendChild(removeButtonCell);
           
@@ -45,19 +45,19 @@ function fetchProducts() {
       })
       .catch(error => console.error('Error fetching products:', error));
   }
-//    // Function to remove a user
-//    function removeUser(userId) {
-//      fetch(`/remove-user/${userId}`, {
-//        method: 'DELETE'
-//      })
-//        .then(response => response.json())
-//        .then(data => {
-//          console.log('User removed:', data);
-//          fetchUsers();
-//        })
-//        .catch(error => console.error('Error removing user:', error));
-//    }
-//    // Initial fetch
+   // Function to remove a product
+   function removeProduct(productCode) {
+     fetch(`/remove-product/${productCode}`, {
+       method: 'DELETE'
+     })
+       .then(response => response.json())
+       .then(data => {
+         console.log('Product removed:', data);
+         fetchProducts();
+       })
+       .catch(error => console.error('Error removing product:', error));
+   }
+// Initial fetch
    fetchProducts();
   
    // Submit form using AJAX

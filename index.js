@@ -76,17 +76,17 @@ app.post('/add-product', async (req, res) => {
   }
 });
 
-// app.delete('/remove-user/:id', async (req, res) => {
-//     const userId = req.params.id;
+app.delete('/remove-product/:id', async (req, res) => {
+    const productCode = req.params.id;
   
-//     try {
-//       await User.findByIdAndRemove(userId);
-//       res.json({ message: 'User removed successfully' });
-//     } catch (err) {
-//       console.error('Error removing user:', err);
-//       res.status(500).json({ error: 'Error removing user' });
-//     }
-// });
+    try {
+      await Product.findByIdAndRemove(productCode);
+      res.json({ message: 'Product removed successfully' });
+    } catch (err) {
+      console.error('Error removing product:', err);
+      res.status(500).json({ error: 'Error removing product' });
+    }
+});
 
 
 app.listen(9000,"127.0.0.1",()=>{
