@@ -1,0 +1,26 @@
+[
+    {
+        "ProductCode": "A12",
+        "ProductName": "Product 1",
+        "ProductData": "22/08/2023",
+        "ProductOriginPrice": "5.000.000",
+        "Quantity": "1000",
+        "ProductStoreCode": "S10"
+    },
+    {
+        "ProductCode": "A13",
+        "ProductName": "Product 2",
+        "ProductData": "22/08/2024",
+        "ProductOriginPrice": "6.000.000",
+        "Quantity": "900",
+        "ProductStoreCode": "S11"
+    },
+    {
+        "ProductCode": "A12",
+        "ProductName": "Product 1",
+        "ProductData": "22/08/2025",
+        "ProductOriginPrice": "7.000.000",
+        "Quantity": "800",
+        "ProductStoreCode": "S12"
+    }
+]
