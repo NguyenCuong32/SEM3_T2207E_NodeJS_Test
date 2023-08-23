@@ -1,37 +1,49 @@
-function fetchUsers() {
+function fetchProducts() {
     fetch('/products')
       .then(response => response.json())
       .then(data => {
-        const tableBody = document.getElementById('userTableBody');
+        const tableBody = document.getElementById('productsTableBody');
         tableBody.innerHTML = '';
   
-        data.forEach(user => {
+        data.forEach(product => {
           const row = document.createElement('tr');
           
-          const usernameCell = document.createElement('td');
-          usernameCell.textContent = user.username;
-          row.appendChild(usernameCell);
+          const productCode = document.createElement('td');
+          productCode.textContent = product.productCode;
+          row.appendChild(productCode);
   
-          const fullnameCell = document.createElement('td');
-          fullnameCell.textContent = user.fullname;
-          row.appendChild(fullnameCell);
+          const productName = document.createElement('td');
+          productName.textContent = product.productName;
+          row.appendChild(productName);
   
-          const addressCell = document.createElement('td');
-          addressCell.textContent = user.address;
-          row.appendChild(addressCell);
+          const productData = document.createElement('td');
+          productData.textContent = product.productData;
+          row.appendChild(productData);
+
+          const productOriginPrice = document.createElement('td');
+          productOriginPrice.textContent = product.productOriginPrice;
+          row.appendChild(productOriginPrice);
+
+          const quantity = document.createElement('td');
+          quantity.textContent = product.quantity;
+          row.appendChild(quantity);
+
+          const productStoreCode = document.createElement('td');
+          productData.textContent = product.productStoreCode;
+          row.appendChild(productStoreCode);
   
           const removeButtonCell = document.createElement('td');
           const removeButton = document.createElement('button');
           removeButton.textContent = 'Remove';
           removeButton.classList.add("btn", "btn-danger");
-          removeButton.addEventListener('click', () => removeUser(user._id));
+          removeButton.addEventListener('click', () => removeUser(product.productCode));
           removeButtonCell.appendChild(removeButton);
           row.appendChild(removeButtonCell);
           
           tableBody.appendChild(row);
         });
       })
-      .catch(error => console.error('Error fetching users:', error));
+      .catch(error => console.error('Error fetching products:', error));
   }
 //    // Function to remove a user
 //    function removeUser(userId) {
@@ -46,7 +58,7 @@ function fetchUsers() {
 //        .catch(error => console.error('Error removing user:', error));
 //    }
 //    // Initial fetch
-//    fetchUsers();
+   fetchProducts();
   
    // Submit form using AJAX
    $(document).ready(function () {

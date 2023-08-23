@@ -39,11 +39,11 @@ app.get('/', (req, res) => {
 
 app.get('/products', async (req, res) => {
     try {
-      const users = await Product.find();
-      res.json(users);
+      const product = await Product.find();
+      res.json(product);
     } catch (err) {
-      console.error('Error fetching users:', err);
-      res.status(500).json({ error: 'Error fetching users' });
+      console.error('Error fetching products:', err);
+      res.status(500).json({ error: 'Error fetching products' });
     }
   });
 
