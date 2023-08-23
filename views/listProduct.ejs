@@ -31,7 +31,7 @@
                   <td><%= product.Quantity %></td>
                   <td><%= product.ProductStoreCode %></td>
                   <td>
-                    <button name="delete">
+                    <button name="delete" id="delete">
                       Delete
                     </button>
                   </td>
@@ -72,6 +72,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFY
     lzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
     <script>
         $("#addProduct").submit(function (event) {
           event.preventDefault();
