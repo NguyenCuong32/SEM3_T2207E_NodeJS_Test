@@ -54,7 +54,7 @@ router.delete('/:ProductCode', (req, res) => {
     
 });
 router.get('/detail/:productcode', (req, res) => {
-    Product.find( {ProductCode:req.params.userid})
+    Product.find( {ProductCode:req.params.ProductCode})
         .then((productcolls) => {
         res.render('detail', { productcolls: productcolls});
     })

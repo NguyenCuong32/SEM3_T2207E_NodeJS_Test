@@ -9,8 +9,8 @@
             <a href="/">
                 <h3>Home page</h3>
             </a>
-            <h2>UPDATE User</h2>
-            <form action="/<%= productcolls._id %>" method="POST">
+             
+            <form action="/<%= productcolls.ProductCode %>" method="POST">
                 <div class="form-group">
                     <input class="form-control" type="hidden" name='_id' value="<%= productcolls._id %>" disabled>
                 </div>
@@ -40,7 +40,7 @@
                 </div>
  
                 <input id="update-btn" class="btn btn-secondary" type="button" value="DELETE"
-                    onclick="handleDeleteUser('<%= productcolls._id %>')">
+                    onclick="handleDeleteUser('<%= productcolls.ProductCode %>')">
             </form>
         </div>
         <script>
