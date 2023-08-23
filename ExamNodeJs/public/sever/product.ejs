@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Management</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Add Product</h1>
+    <form action="/api/products" method="post">
+      <div class="form-group">
+        <label for="productCode">Product Code</label>
+        <input type="text" class="form-control" id="productCode" name="ProductCode" required>
+      </div>
+      <div class="form-group">
+        <label for="productName">Product Name</label>
+        <input type="text" class="form-control" id="productName" name="ProductName" required>
+      </div>
+      <div class="form-group">
+        <label for="productData">Product Data</label>
+        <input type="text" class="form-control" id="productData" name="ProductData" required>
+      </div>
+      <div class="form-group">
+        <label for="productOriginPrice">Product Origin Price</label>
+        <input type="text" class="form-control" id="productOriginPrice" name="ProductOriginPrice" required>
+      </div>
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="number" class="form-control" id="quantity" name="Quantity" required>
+      </div>
+      <div class="form-group">
+        <label for="productStoreCode">Product Store Code</label>
+        <input type="text" class="form-control" id="productStoreCode" name="ProductStoreCode" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Product</button>
+    </form>
+
+    <h1>Delete Product</h1>
+    <form action="/api/products/<%= product._id %>" method="delete">
+      <div class="form-group">
+        <label```

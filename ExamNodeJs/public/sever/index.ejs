@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Management</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Product Management</h1>
+
+    <h2>Product List</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Product Code</th>
+          <th>Product Name</th>
+          <th>Product Data</th>
+          <th>Product Origin Price</th>
+          <th>Quantity</th>
+          <th>ProductStore Code</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% products.forEach(function(product) { %>
+          <tr>
+            <td><%= product.ProductCode %></td>
+            <td><%= product.ProductName %></td>
+            <td><%= product.ProductData %></td>
+            <td><%= product.ProductOriginPrice %></td>
+            <td><%= product.Quantity %></td>
+            <td><%= product.ProductStoreCode %></td>
+            <td>
+              <form action="/products/delete/<%= product._id %>" method="post">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+    <h2>Add Product</h2>
+    <form action="/products" method="post">
+      <div class="form-group">
+        <label for="productCode">Product Code</label>
+        <input type="text" class="form-control" id="productCode" name="ProductCode" required>
+      </div>
+      <div class="form-group">
+        <label for="productName">Product Name</label>
+        <input type="text" class="form-control" id="productName" name="ProductName" required>
+      </div>
+      <div class="form-group">
+        <label for="productData">Product Data</label>
+        <input type="text" class="form-control" id="productData" name="ProductData" required>
+      </div>
+      <div class="form-group">
+        <label for="productOriginPrice">Product Origin Price</label>
+        <input type="text" class="form-control" id="productOriginPrice" name="ProductOriginPrice" required>
+      </div>
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="number" class="form-control" id="quantity" name="Quantity" required>
+      </div>
+      <div class="form-group">
+        <label for="productStoreCode">Product Store Code</label>
+        <input type="text" class="form-control" id="productStoreCode" name="ProductStoreCode" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Product</button>
+    </form>
+
+    <h2>Sort Products</h2>
+    <form action="/products/sort" method="get">
+      <button type="submit" class="btn btn-primary">Sort Products</button>
+    </form>
+  </div>
+</body>
+</html>
