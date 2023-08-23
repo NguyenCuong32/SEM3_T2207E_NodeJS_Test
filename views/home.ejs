@@ -24,25 +24,26 @@
                 </thead>
                 <% for(var i=0; i < productcolls.length; i++) { %>
                 <tr ondblclick="handleUpdateUser('<%= usersps[i]._id %>')">
-                     <td><%= productcolls[i].userid %></td> 
-                    <td><%= productcolls[i].username %></td>
-                    <td><%= productcolls[i].age %></td>
-                    <td><%= productcolls[i].age %></td>
-                    <td><%= productcolls[i].age %></td>
+                     <td><%= productcolls[i].ProductCode %></td> 
+                    <td><%= productcolls[i].ProductName %></td>
+                    <td><%= productcolls[i].ProductOriginPrice %></td>
+                    <td><%= productcolls[i].Quantity %></td>
+                    <td><%= productcolls[i].ProductStoreCode %></td>
+                    <td><%= productcolls[i].ProductData %></td>
                     <td>
-                        <input class="btn btn-primary" type="button" value="Update/info"
-                            onclick="handleUpdateUser('<%= usersps[i]._id %>')">
+                        <input class="btn btn-primary" type="button" value="info"
+                            onclick="handleUpdateUser('<%= productcolls[i].ProductCode %>')">
                     </td>
                     <td>
                         <input id="update-btn" class="btn btn-secondary" type="button" value="DELETE"
-                    onclick="handleDeleteUser('<%= usersps[i]._id %>')">   
+                    onclick="handleDeleteUser('<%= productcolls[i]._id %>')">   
                     </td>
                 </tr>
                 <% } %>
             </table>
             <script>
                 function handleUpdateUser(value) {
-                    $(location).attr('href', '/update-user/' + value);
+                    $(location).attr('href', '/detail/' + value);
                 }
                 
                 function handleDeleteUser(value) {
@@ -57,5 +58,69 @@
 
             </script>
         </div>
+
+
+        <div class="container">
+            <h2>ADD User </h2>
+            <form action="/"  method="POST">
+                <div class="form-group">
+                    <label>Product Code</label>
+                    <input class="form-control" type="text" name='ProductCode'>
+                </div>
+                <div class="form-group">
+                    <label>Product Name</label>
+                    <input class="form-control" type="text" name='ProductName'>
+                </div>
+ 
+
+                <div class="form-group">
+                    <label>Product Origin Price</label>
+                    <input class="form-control" type="text" name='ProductOriginPrice'>
+                </div>
+               
+
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input class="form-control" type="text" name='Quantity'>
+                </div>
+
+                <div class="form-group">
+                    <label>Product Store Code</label>
+                    <input class="form-control" type="text" name='ProductStoreCode'>
+                </div>
+                 
+                <div class="form-group">
+                    <label>Product Data</label>
+                    <input  class="form-control" type="date" name='ProductData'> 
+                </div>
+
+                <input id="add-btn" class="btn btn-primary" type="submit" value="ADD Prodcut">
+            </form>
+        </div>
+        <script>
+        function postItem() {
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:2512/",
+            data: {
+                ProductCode: req.body.ProductCode,
+        ProductName: req.body.ProductName,
+        ProductOriginPrice: req.body.ProductOriginPrice,
+        Quantity: req.body.Quantity,
+        ProductStoreCode: req.body.ProductStoreCode,
+         ProductData: req.body.ProductData
+            },
+            error: function(jqXHR, textStatus, err) {
+                //show error message
+                alert('text status '+textStatus+', err '+err)
+            }
+        });
+    }//postItem()
+
+    $('#add-btn').on('click', function() {
+        postItem();
+    })</script>
+
+
     </body>
 </html>
