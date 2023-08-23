@@ -114,7 +114,24 @@ app.post("/product/add", (req, res) => {
         });
 });
 
+app.delete("/product/del/:ProductCode", (req, res) => {
+    console.log("Delete....");
+    console.log(req.params.ProductCode);
+    const ProductCode = req.params.ProductCode;
 
+    Product.findOneAndDelete({ ProductCode: ProductCode })
+        .then((deletedProduct) => {
+            if (deletedProduct) {
+                res.status(200).json({ message: "Product deleted successfully", data: deletedProduct });
+            } else {
+                res.status(404).json({ error: "Product not found" });
+            }
+        })
+        .catch((err) => {
+            console.error("Error deleting product", err);
+            res.status(500).json({ error: "Unable to delete product" });
+        });
+});
 
 
 app.listen(9000,"127.0.0.1",()=>{

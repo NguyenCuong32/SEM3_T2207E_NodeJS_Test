@@ -41,6 +41,16 @@
         </table>
     </form>
 
+    <h1>Delete Student</h1>
+    <form id="deleteProductForm">
+        <table>
+            <tr>
+                <td><input type="text" name="ProductCode" placeholder="ProductCode"></td>
+            </tr>
+            <button type="submit">Delete product</button>
+        </table>
+    </form>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -63,5 +73,25 @@
             });
         });
     </script>
+
+<script>
+    $(document).ready(function() {
+        $("#deleteProductForm").submit(function(event) {
+            event.preventDefault();
+
+            var ProductCode = $(this).find("input[name='ProductCode']").val();
+            $.ajax({
+                type: "DELETE",
+                url: "product/del/" + ProductCode,
+                success: function(response) {
+                    alert("Product deleted successfully");
+                },
+                error: function(error) {
+                    alert("Error deleting product");
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
